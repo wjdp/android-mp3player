@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Button button_next;
     Button button_stop;
 
-    final String TAG = "mp3player-MainActivity";
+    final String TAG = "MainActivity";
 
     private PlayerService.PlayerBinder myPlayerService = null;
 
@@ -94,21 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause");
-
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -161,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 String title = bundle.getString(PlayerService.SONG_TITLE);
                 int queue = bundle.getInt(PlayerService.QUEUE);
 
-                // Perform some UI work depedending on callback
+                // Perform some UI work depending on callback
                 Boolean nextState = queue > 1;
                 switch (callback) {
                     case PlayerService.PLAY:
@@ -208,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 String songArtist = musicCursor.getString(artistColumn);
                 String songPath = musicCursor.getString(pathColumn);
                 Log.d(TAG, songTitle);
-                songList.song_list.add(new Song(songId, songTitle, songArtist, songPath));
+                songList.addSong(new Song(songId, songTitle, songArtist, songPath));
             } while(musicCursor.moveToNext());
         }
 

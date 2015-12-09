@@ -39,12 +39,6 @@ public class PlayerService extends Service {
     public PlayerService() {
     }
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "onStartCommand");
-        return Service.START_NOT_STICKY;
-    }
-
     protected void sendNotification(String notification) {
         Intent intent = new Intent(NOTIFICATION);
         intent.putExtra(CALLBACK, notification);
@@ -55,10 +49,6 @@ public class PlayerService extends Service {
         }
         sendBroadcast(intent);
     }
-
-//    protected void onHandleIntent(Intent intent) {
-//        Log.d(TAG, "Intent handle");
-//    }
 
     private final Binder binder = new PlayerBinder();
 
