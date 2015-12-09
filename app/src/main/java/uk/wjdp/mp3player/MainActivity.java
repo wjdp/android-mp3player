@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                         setButtonStates(false, true, nextState, true);
                         break;
                     case PlayerService.PAUSE:
-                        textView_status.setText("|| " + artist + " - " + title + " (" + queue + ")");
+                        textView_status.setText("▋▋ " + artist + " - " + title + " (" + queue + ")");
                         setButtonStates(true, false, nextState, true);
                         break;
                     case PlayerService.STOP:
