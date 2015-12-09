@@ -4,6 +4,8 @@
 
     <!-- MP3's are stored on external storage, we need permission to list and read them -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Allow wake locks, used by PlayerService to prevent sleep while playing music -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"

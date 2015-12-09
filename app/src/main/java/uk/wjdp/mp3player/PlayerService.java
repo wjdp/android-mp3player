@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.util.Log;
 
 import java.io.IOException;
@@ -135,6 +136,7 @@ public class PlayerService extends Service {
                 }
 
                 playerMediaPlayer = new MediaPlayer();
+                playerMediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
 
                 // Grab the song to be played and set our instance ref
                 song = songList.popSong();
@@ -193,6 +195,12 @@ public class PlayerService extends Service {
     void setBackground() {
         // Return the service to the background so it can die
         stopForeground(true);
+    }
+
+    @Override
+    public void onDestroy() {
+        // Double check the player has been released
+        if (playerMediaPlayer != null) playerMediaPlayer.release();
     }
 
 }

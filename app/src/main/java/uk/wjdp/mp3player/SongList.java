@@ -3,6 +3,7 @@ package uk.wjdp.mp3player;
 import java.util.ArrayList;
 
 public class SongList {
+    // Class for managing a list of Songs
 
     public ArrayList<Song> song_list = new ArrayList<Song>();
 
@@ -33,6 +34,7 @@ public class SongList {
     }
 
     public static class Song {
+        // A single song
         long id;
         String title;
         String artist;
